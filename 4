@@ -1,0 +1,25 @@
+CREATE TABLE Customer (
+    customer_id PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Product (
+    product_id PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+);
+
+CREATE TABLE Order (
+    order_id PRIMARY KEY,
+    order_date DATE NOT NULL,
+    customer_id NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+);
+
+CREATE TABLE Order_Product (
+    order_id PRIMARY KEY,
+    product_id PRIMARY KEY,
+    quantity NOT NULL
+    FOREIGN KEY (order_id) REFERENCES Order(order_id),
+    FOREIGN KEY (product_id) REFERENCES Product(product_id)
+);
