@@ -7,7 +7,7 @@ CREATE TABLE customer (
 CREATE TABLE zakaz (
     zakaz_id SERIAL PRIMARY KEY,
     zakaz_date DATE NOT NULL,
-    customer_id INT,
+    customer_id INT NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
 
