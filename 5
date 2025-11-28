@@ -9,13 +9,12 @@ CREATE Table authors(
 CREATE TABLE books(
     books_id INT PRIMARY KEY,
     title TEXT NOT NULL,
-    published_year INT,
-    authors_id INT,
+    published_year INT NOT NULL,
+    authors_id INT NOT NULL,
     FOREIGN KEY (authors_id) REFERENCES authors(authors_id)
 );
 
-ALTER Table books add constraint published_year check (published_year < 2025);
-
+ALTER Table books add constraint published_year check (published_year <= 2025);
 ALTER Table books
 drop column authors_id;
 
