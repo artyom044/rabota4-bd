@@ -17,9 +17,6 @@ CREATE TABLE product (
     product_zakaz NUMERIC NOT NULL
 );
 
-
-ALTER TABLE zakaz ADD CONSTRAINT "check" FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
-
 create Table zakaz_product (
     zakaz_id INT,
     product_id INT,
