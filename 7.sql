@@ -48,7 +48,6 @@ WHERE student_id = 3 AND course_id = 1;
 DELETE FROM students
 WHERE student_id = 4;
 
-----------------------------------------------------------------------
 
 SELECT * FROM students;
 SELECT course_name, credits FROM courses;
