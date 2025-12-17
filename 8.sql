@@ -151,7 +151,7 @@ WHERE oi.product_id = (
 
 SELECT full_name FROM Customers c 
 WHERE customer_id IN (
-    SELECT DISTINCT o.customer_id FROM Orders o 
+    SELECT o.customer_id FROM Orders o 
     WHERE o.order_id IN (
         SELECT order_id FROM Order_Items oi 
         WHERE product_id = (
