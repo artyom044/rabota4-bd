@@ -73,10 +73,14 @@ INSERT INTO Order_Items (order_id, product_id, quantity, price_per_unit) VALUES
 (4, 5, 1, 4500.00);   -- и Фен
 
 ------------1
-SELECT full_name, o.order_date FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id;
+SELECT full_name, o.order_date 
+FROM Customers c 
+JOIN Orders o ON c.customer_id = o.customer_id;
 
 ------------2
-SELECT full_name FROM Customers c LEFT JOIN Orders o ON c.customer_id = o.customer_id
+SELECT full_name 
+FROM Customers c 
+LEFT JOIN Orders o ON c.customer_id = o.customer_id
  WHERE o.order_id IS NULL;
 
 ------------3
@@ -107,10 +111,13 @@ WHERE customer_id IN (
 );
 
 ------------5
-SELECT product_name, price FROM Products WHERE price > (SELECT avg(price) FROM Products);
+SELECT product_name, price 
+FROM Products WHERE price > (SELECT avg(price) FROM Products);
 
 ------------6
-SELECT order_id, order_date FROM Orders o WHERE EXISTS(SELECT sum(oi.quantity * oi.price_per_unit) FROM Order_Items oi WHERE oi.order_id = o.order_id) > 100000;
+SELECT order_id, order_date 
+FROM Orders o 
+WHERE EXISTS(SELECT sum(oi.quantity * oi.price_per_unit) FROM Order_Items oi WHERE oi.order_id = o.order_id) > 100000;
 
 ------------7
 SELECT DISTINCT full_name FROM Customers c 
@@ -130,7 +137,9 @@ WHERE c.customer_id NOT IN (
 );
 
 ------------8
-SELECT product_name FROM Products p LEFT JOIN Order_Items oi ON p.product_id = oi.product_id WHERE oi.order_item_id IS NULL;
+SELECT product_name
+FROM Products p 
+LEFT JOIN Order_Items oi ON p.product_id = oi.product_id WHERE oi.order_item_id IS NULL;
 
 ------------9
 SELECT full_name, product_name, quantity FROM Customers c
